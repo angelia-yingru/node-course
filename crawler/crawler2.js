@@ -11,7 +11,7 @@ fs.readFile('stock.txt', 'utf-8', (err, stockNo) => {
     console.log('read stock no from file:', stockNo);
     // https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20220301&stockNo=2330
     axios
-      .get('https://www.twse.com.tw/exchangeReport/STOCK_DAY', {
+      .get('https://www.twse.com.tw/exchangeReport/STOCK_DAY8', {
         params: {
           // 設定 query string
           response: 'json',

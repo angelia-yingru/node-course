@@ -10,5 +10,8 @@
     "mfee25"
   ],
   "author": "Angelia",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3"
+  }
 }

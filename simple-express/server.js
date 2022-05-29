@@ -123,9 +123,20 @@ app.get('/stocks/:stockId', async (req, res, next) => {
   // 取得網址上的參數 req.params
   // req.params.stockId
   console.log('get stocks by id', req.params);
-  let [data, fields] = await pool.execute('SELECT * FROM stocks WHERE id = ' + req.params.stockId);
+  let [data, fields] = await pool.execute('SELECT * FROM stock_prices WHERE stock_id = ?', [req.params.stockId]);
 
-  console.log('query stock by id:', data);
+  // console.log('query stock by id:', data);
+
+//   1. /stocks/:stockId?page=1
+let page = request.query.page || 1;
+
+//   取得目前在第幾頁 req.query.page，而且利用 || 這個特性來做預設值 
+let perPage = 5;
+let lastPage = math.ceil(total/perPage);
+let offset = (page - 1) * perPage;
+// 5. 取得這一頁的資料 select * ... limit ? offset ?
+// 6. 回覆給前端
+
   // 空資料(查不到資料)有兩種處理方式：
   // 1. 200OK 就回 []
   // 2. 回覆 404

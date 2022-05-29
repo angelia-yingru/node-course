@@ -1,4 +1,5 @@
-How To Install
-``````
-cp.env.example```
+# How to install
+
+```bash
+cp .env.example .env
 ```
